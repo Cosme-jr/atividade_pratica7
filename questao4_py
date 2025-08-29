@@ -1,0 +1,41 @@
+'''
+Crie um script em Python que leia e escreva dados em um arquivo JSON. O arquivo JSON deve conter informações de uma pessoa, com campos nome, idade e cidade.
+'''
+
+import json
+from pathlib import Path
+import sys
+
+def main():
+    # Permite customizar o arquivo na linha de comando (padrão: pessoa.json)
+    out_name = "pessoa.json"
+    if len(sys.argv) >= 2 and not sys.argv[11].startswith("--"):
+        out_name = sys.argv[11]
+
+    path = Path(out_name)
+
+    # Dados de exemplo
+    pessoa = {
+        "nome": "Maria Silva",
+        "idade": 29,
+        "cidade": "São Paulo"
+    }
+
+    # Escrever JSON (UTF-8, preservando acentos)
+    with path.open("w", encoding="utf-8") as f:
+        json.dump(pessoa, f, ensure_ascii=False, indent=2)
+
+    print(f"Arquivo JSON criado: {path.resolve()}")
+
+    # Ler JSON
+    with path.open("r", encoding="utf-8") as f:
+        dados = json.load(f)
+
+    # Exibir dados
+    print("Conteúdo lido do JSON:")
+    print(f"nome: {dados.get('nome')}")
+    print(f"idade: {dados.get('idade')}")
+    print(f"cidade: {dados.get('cidade')}")
+
+if __name__ == "__main__":
+    main()
