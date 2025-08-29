@@ -1,0 +1,29 @@
+# Ambientes virtuais
+venv/
+.venv/
+env/
+.env/
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Build/empacotamento
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# IDE/Editor
+.vscode/
+.idea/
+
+# Logs e temporários
+*.log
+
+# Dados (mantenha só amostra pequena)
+data/
+datasets/
+# exemplo para manter apenas um arquivo:
+# !data/logs.csv
